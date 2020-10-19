@@ -13,6 +13,35 @@
 #include "heapsort.h"
 using namespace std;
 
+void swap(int *xp, int *yp) 
+{ 
+    int temp = *xp; 
+    *xp = *yp; 
+    *yp = temp; 
+} 
+  
+// An optimized version of Bubble Sort 
+void bubbleSort(int arr[], int n) 
+{ 
+   int i, j; 
+   bool swapped; 
+   for (i = 0; i < n-1; i++) 
+   { 
+     swapped = false; 
+     for (j = 0; j < n-i-1; j++) 
+     { 
+        if (arr[j] > arr[j+1]) 
+        { 
+           swap(&arr[j], &arr[j+1]); 
+           swapped = true; 
+        } 
+     } 
+  
+     // IF no two elements were swapped by inner loop, then break 
+     if (swapped == false) 
+        break; 
+   } 
+} 
 /**
  * Prints intro followed by elements of vec (separated by spaces) on the same line
  *
